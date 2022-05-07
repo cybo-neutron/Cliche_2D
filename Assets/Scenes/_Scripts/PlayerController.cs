@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : DestructibleObject
 {
-    [SerializeField] float speed;
     Rigidbody2D rb;
+
+    [Header("Movement")]
+    [SerializeField] float speed;
+    bool facingRight = true;
 
     [Header("Jump")]
     [SerializeField] float jumpVelocity;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,15 +37,27 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-
         //TODO : use GetAxisRaw("Jump) for variable jump height
         if (Input.GetButtonDown("Jump"))
         {
             if (canJump())
                 Jump();
         }
+    }
+
+    void FixedUpdate()
+    {
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        //Handle flip
+        if (horizontalInput > 0 && !facingRight)
+            Flip();
+        if (horizontalInput < 0 && facingRight)
+            Flip();
+
         rb.velocity = new Vector2(horizontalInput * speed * Time.deltaTime, rb.velocity.y);
+
+
     }
 
     void Jump()
@@ -79,6 +95,19 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+
+        // Vector3 localScale = transform.localScale;
+        // localScale.x *= -1;
+        // transform.localScale = localScale;
+        float rotationY = facingRight ? 0f : 180f;
+        transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
+    }
+
+
 
 
 }
