@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CirleGizmo : MonoBehaviour
 {
-    public float radius;
+    public float radius = 0.1f;
     public Color gizmoColor = Color.red;
 
     private void OnDrawGizmos()
