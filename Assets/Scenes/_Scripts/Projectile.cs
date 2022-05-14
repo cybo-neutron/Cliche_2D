@@ -14,12 +14,24 @@ public class Projectile : MonoBehaviour
     float bulletSpeed;
     int damageAmount;
     ShotBy shotBy;
+    public ParticleSystem explosionEffect;
+    Collider2D col2D;
+    SpriteRenderer sprite;
+    bool canMove = true;
 
+    private void Start()
+    {
+        col2D = GetComponent<Collider2D>();
+        if (explosionEffect == null)
+            explosionEffect = GetComponent<ParticleSystem>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (canMove)
+            Move();
     }
 
 
@@ -50,7 +62,12 @@ public class Projectile : MonoBehaviour
                     hit.TakeDamage(damageAmount);
             }
 
-            Destroy(this.gameObject);
+            explosionEffect.Play();
+            canMove = false;
+            Destroy(col2D);
+            Destroy(sprite);
+
+            Destroy(this.gameObject, explosionEffect.main.duration);
         }
 
     }
