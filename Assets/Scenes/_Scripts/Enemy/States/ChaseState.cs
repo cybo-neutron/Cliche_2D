@@ -18,20 +18,34 @@ public class ChaseState : States
     {
         base.Update();
 
+        //Keep chasing until edge is detected
+        if (aiScript.canMove() && aiScript.CanSeeTarget())
+        {
+            aiScript.MoveTowardPlayer();
+        }
+
+
         if (aiScript.CanAttackTarget())
         {
             //Goto Attack State
+            nextState = new AttackState(aiScript, npc);
+            Stage = STAGE.EXIT;
         }
         else if (!aiScript.CanSeeTarget())
         {
             //Go to idle state 
+            nextState = new IdleState(aiScript, npc);
+            Stage = STAGE.EXIT;
         }
 
-        //Keep chasing until edge is detected
+
     }
 
     public override void Exit()
     {
+        //TODO : handle the transition from patrol to chase state so that it doesn't fall of the edge
+        if (nextState.State == STATE.IDLE)
+            aiScript.Stop();
         base.Exit();
     }
 }

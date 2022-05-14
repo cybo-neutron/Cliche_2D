@@ -42,7 +42,6 @@ public class Projectile : MonoBehaviour
 
         if (other.collider != null)
         {
-            print("Hit :" + other.collider.name);
             IDestructible hit;
             bool didHitObj = other.gameObject.TryGetComponent<IDestructible>(out hit);
             if (didHitObj)
@@ -50,7 +49,9 @@ public class Projectile : MonoBehaviour
                 if (hit.entityType == EntityType.Object || (hit.entityType == EntityType.Enemy && shotBy == ShotBy.Player) || (hit.entityType == EntityType.Player && shotBy == ShotBy.Enemy))
                     hit.TakeDamage(damageAmount);
             }
+
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+
     }
 }

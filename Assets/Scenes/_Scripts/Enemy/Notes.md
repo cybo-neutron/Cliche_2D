@@ -41,3 +41,6 @@ Check the target waypoint or the target -> if the target is to the right of enem
 `chaseRange`
 Raycast to enemy with a `chaseRange` distance
 
+### Patrol State
+**Can switch to **
+- Chase State

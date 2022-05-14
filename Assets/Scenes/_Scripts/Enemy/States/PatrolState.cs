@@ -16,13 +16,14 @@ public class PatrolState : States
 
     public override void Enter()
     {
-        Debug.Log("Patrol State");
+        // Debug.Log("Patrol State");
         base.Enter();
 
         //Find the closest waypoint as targetWaypoint
         currIndex = findClosestWayPoint();
 
     }
+
 
     public override void Update()
     {
@@ -31,6 +32,9 @@ public class PatrolState : States
         if (aiScript.CanSeeTarget())
         {
             //Go to chase state
+            // Debug.Log("Can see target now");
+            nextState = new ChaseState(aiScript, npc);
+            Stage = STAGE.EXIT;
         }
 
 
@@ -39,9 +43,6 @@ public class PatrolState : States
 
         //Keep patrolling b/w the waypoints
         aiScript.MoveTowards(aiScript.env.waypoints[currIndex]);
-
-
-
     }
 
     public override void Exit()
@@ -70,7 +71,18 @@ public class PatrolState : States
     {
         if (Vector2.Distance(npc.transform.position, aiScript.env.waypoints[currIndex].transform.position) < 0.1f)
         {
-            currIndex = (currIndex + 1) % totalWaypoints;
+            nextWayPoint();
         }
+        //TODO: come with a better implementation for edge detection and flipping the player
+        if (!aiScript.canMove())
+        {
+            nextWayPoint();
+            // aiScript.Flip();
+        }
+    }
+
+    void nextWayPoint()
+    {
+        currIndex = (currIndex + 1) % totalWaypoints;
     }
 }

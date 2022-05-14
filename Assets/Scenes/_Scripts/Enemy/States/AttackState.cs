@@ -12,6 +12,7 @@ public class AttackState : States
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Attack");
     }
 
     public override void Update()
@@ -21,15 +22,23 @@ public class AttackState : States
         if (aiScript.CanAttackTarget())
         {
             //Keep Attacking
+            if (!aiScript.coroutineHelper.isTimerRunning())
+            {
+                aiScript.coroutineHelper.StartTimer(0.2f);
+                aiScript.gunController.Shoot();
+            }
         }
         else
         {
             //Goto Idle state
+            nextState = new IdleState(aiScript, npc);
+            Stage = STAGE.EXIT;
         }
     }
 
     public override void Exit()
     {
+        aiScript.coroutineHelper.StopTimer();
         base.Exit();
     }
 }

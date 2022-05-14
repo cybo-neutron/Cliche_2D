@@ -14,7 +14,7 @@ public class IdleState : States
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Idle state");
+        // Debug.Log("Idle state");
         aiScript.coroutineHelper.StartTimer(1f);
     }
 
@@ -37,6 +37,8 @@ public class IdleState : States
 
     public override void Exit()
     {
+        aiScript.coroutineHelper.StopTimer();
+
         base.Exit();
     }
 
