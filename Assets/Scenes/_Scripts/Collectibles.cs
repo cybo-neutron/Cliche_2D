@@ -10,12 +10,16 @@ public class Collectibles : MonoBehaviour
     SpriteRenderer sprite;
     Collider2D col;
     public GameObject targetGameObject;
+
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
         effect = GetComponent<ParticleSystem>();
         sprite = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,21 +33,12 @@ public class Collectibles : MonoBehaviour
 
             Destroy(col);
             Destroy(sprite);
+            GameManager.UpdateScore(score);
 
             Destroy(gameObject, effect.main.duration);
         }
     }
 
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.layer == layer)
-    //     {
-    //         if (effect == null)
-    //         {
-    //             effect.Play();
-    //         }
-    //         Destroy(gameObject, effect.main.duration);
-    //     }
-    // }
+
 
 }
