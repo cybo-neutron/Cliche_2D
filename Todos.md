@@ -1,0 +1,10 @@
+- [x] Cinemachine
+  - [x] Camera bounds
+- [ ] Sprite Shape
+- [ ] Player Singleton
+- [ ] Game Manager Singleton
+- [ ] Player animation
+- [ ] Dialog system
+- [ ] UI system
+- [ ] Player Animation
+- [ ] Object pooling
