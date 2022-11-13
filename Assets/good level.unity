@@ -172,15 +172,15 @@ MonoBehaviour:
   m_LookaheadTime: 0.103
   m_LookaheadSmoothing: 8.7
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
+  m_XDamping: 1.5
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
+  m_DeadZoneWidth: 0.3
+  m_DeadZoneHeight: 0.38
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
@@ -2116,10 +2116,10 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 646528731}
   m_Lens:
-    FieldOfView: 18.8
+    FieldOfView: 22.8
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 5000.03
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -2226,6 +2226,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5179515495593198778, guid: 2e0fe843a7c3d634f8938d1f7daa5ce5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -3601147129428955498, guid: 2e0fe843a7c3d634f8938d1f7daa5ce5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2311,8 +2315,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 18.8
+  far clip plane: 5000.03
+  field of view: 22.8
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -2338,7 +2342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420784349}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.376461, y: -3.2783108, z: -9.635691}
+  m_LocalPosition: {x: 21.734932, y: -3.2779408, z: -9.635691}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2407,17 +2411,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4999585156973552221, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4999585156973552222, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4999585156973552222, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8125
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 4999585156973552222, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.725
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 4999585156973552222, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2460,12 +2468,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4999585156973552223, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
+      propertyPath: speed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999585156973552223, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: jumpsLeft
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4999585156973552223, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
+      propertyPath: coyoteTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999585156973552223, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: jumpHeight
-      value: 5
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999585156973552223, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
+      propertyPath: timeToReachApex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999585156973552223, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999585156973552223, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
+      propertyPath: _groundDetectionRayLength
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4999585157153710792, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: m_Color.b
@@ -2486,6 +2514,14 @@ PrefabInstance:
     - target: {fileID: 4999585157584517531, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: m_SortingOrder
       value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999585158104687993, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
+      propertyPath: radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999585158104687994, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5257882
       objectReference: {fileID: 0}
     - target: {fileID: 5588776692687832182, guid: 22da24e09bcf1e04393006d058238d20, type: 3}
       propertyPath: m_Enabled

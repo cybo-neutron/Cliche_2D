@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &926288883075219219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5579810316367994481}
+  - component: {fileID: 7387668495518956910}
+  m_Layer: 8
+  m_Name: groundDetection1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5579810316367994481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926288883075219219}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.473, y: -0.492, z: 0}
+  m_LocalScale: {x: 2.0688653, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4999585156960641285}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7387668495518956910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926288883075219219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc7b46ded0796541b1f95e87b500f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.1
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &4999585156603178145
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,7 +71,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4999585156603178145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.411, y: 0.04, z: 0}
+  m_LocalPosition: {x: 0.306, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,8 +203,9 @@ Transform:
   m_LocalScale: {x: 0.48335674, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4999585158104687994}
   - {fileID: 4999585157584517508}
+  - {fileID: 5579810316367994481}
+  - {fileID: 2856827908235117668}
   m_Father: {fileID: 4999585156973552222}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -265,18 +312,12 @@ MonoBehaviour:
   health: 10
   entity_Type: 0
   speed: 200
-  jumpVelocity: 12
   jumpHeight: 0
-  fallingGravity: 1
-  normalGravity: 3
-  totalJumps: 2
-  jumpsLeft: 0
-  variableJumpTime: 0.1
-  groundDetection: {fileID: 4999585158104687994}
-  groundDetectionRadius: 0.24
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  jumpVelocity: 12
+  timeToReachApex: 2
+  groundDetectionPoints:
+  - {fileID: 5579810316367994481}
+  - {fileID: 2856827908235117668}
 --- !u!50 &4999585156973552221
 Rigidbody2D:
   serializedVersion: 4
@@ -428,7 +469,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4999585156960641285}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4999585157584517531
 SpriteRenderer:
@@ -482,7 +523,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &4999585158104687995
+--- !u!1 &5892935033558152279
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -490,41 +531,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4999585158104687994}
-  - component: {fileID: 4999585158104687993}
-  m_Layer: 8
-  m_Name: GroundDetection
+  - component: {fileID: 2856827908235117668}
+  - component: {fileID: 8844557482569444023}
+  m_Layer: 0
+  m_Name: groundDetection2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4999585158104687994
+--- !u!4 &2856827908235117668
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4999585158104687995}
+  m_GameObject: {fileID: 5892935033558152279}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.48, z: 0}
-  m_LocalScale: {x: 2.0688653, y: 1, z: 1}
+  m_LocalPosition: {x: 0.465, y: -0.48200047, z: 0.01920526}
+  m_LocalScale: {x: 3.8312316, y: 1.8181818, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4999585156960641285}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4999585158104687993
+--- !u!114 &8844557482569444023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4999585158104687995}
+  m_GameObject: {fileID: 5892935033558152279}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbc7b46ded0796541b1f95e87b500f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.2
-  gizmoColor: {r: 0.6981132, g: 0.345854, b: 0, a: 1}
+  radius: 0.1
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}

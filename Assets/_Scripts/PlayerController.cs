@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : DestructibleObject
@@ -7,42 +8,15 @@ public class PlayerController : DestructibleObject
     Rigidbody2D rb;
 
     [Header("Movement")]
-    [SerializeField] float speed;
+    [SerializeField]
+    float speed;
+
     bool facingRight = true;
-
-    [Header("Jump")]
-    [SerializeField] float jumpVelocity;
-    [SerializeField] float jumpHeight;
-    [SerializeField] float fallingGravity = 1f;
-    [SerializeField] float normalGravity = 1f;
-    [SerializeField] int totalJumps = 1;
-    [SerializeField] int jumpsLeft;
-
-    [SerializeField] float variableJumpTime = 0.1f;
-    float variableJumpTimer = 0f;
-    bool isJumping;
-
-    [SerializeField] Transform groundDetection;
-    [SerializeField] float groundDetectionRadius;
-    [SerializeField] LayerMask groundLayer;
-
-
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = normalGravity;
-        jumpsLeft = totalJumps;
-    }
-
-    void Update()
-    {
-        //TODO : use GetAxisRaw("Jump) for variable jump height
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (canJump())
-                Jump();
-        }
+        InitialiseJumpProperties();
     }
 
     void FixedUpdate()
@@ -50,64 +24,100 @@ public class PlayerController : DestructibleObject
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
         //Handle flip
-        if (horizontalInput > 0 && !facingRight)
-            Flip();
-        if (horizontalInput < 0 && facingRight)
-            Flip();
+        if (horizontalInput > 0 && !facingRight) Flip();
+        if (horizontalInput < 0 && facingRight) Flip();
 
-        rb.velocity = new Vector2(horizontalInput * speed * Time.deltaTime, rb.velocity.y);
-
-
+        rb.velocity =
+            new Vector2(horizontalInput * speed * Time.deltaTime,
+                rb.velocity.y);
     }
 
-    void Jump()
+    void Update()
     {
-        if (!isJumping)
+        //TODO : use GetAxisRaw("Jump) for variable jump height
+        HandleJump();
+    }
+
+
+#region Jump
+    [Header("Jump")]
+    [SerializeField] float jumpHeight = 5f;
+    [SerializeField] float jumpVelocity = 0f;
+    [SerializeField] float timeToReachApex = 2f;
+    float _gravity = 0f;
+    [SerializeField] bool _onGround = false;
+    public Transform[] groundDetectionPoints;
+    public LayerMask groundLayer;
+    [SerializeField] float _groundDetectionRayLength = 0.2f;
+
+    //Coyote 
+    float _lastTimeOnGround = 0f;
+    [SerializeField] float coyoteTime = 0.1f;
+
+
+
+    void InitialiseJumpProperties(){
+        CalculateJumpVelocity();
+        rb.gravityScale = _gravity;
+    }
+    void HandleJump(){
+
+        checkGrounded();
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //TODO : Start coroutine jumpCoolDown for Variable Jump Height and maybe Coyote jump
-            isJumping = true;
-
+            //TODO : check if it can jump
+            if(Input.GetKeyDown(KeyCode.Space) && canJump()){
+                Jump();
+            }
         }
+    }
 
+    void CalculateJumpVelocity()
+    {
+        _gravity = (2 * jumpHeight) / (timeToReachApex * timeToReachApex);
+        jumpVelocity = (float)System.Math.Sqrt(2 * _gravity*jumpHeight);
+    }
+
+    void Jump(){
         rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
-        jumpsLeft--;
     }
 
-    bool onGround()
-    {
-        //Check if on Ground
-        // if on ground and !isJumping jumpsLeft = totalJumps
-        if (Physics2D.OverlapCircle(groundDetection.position, groundDetectionRadius, groundLayer))
-        {
+    bool canJump(){
 
-            jumpsLeft = totalJumps;
-            isJumping = false;
+        //Coyote jump
+        if(!_onGround && Time.time < _lastTimeOnGround + coyoteTime)
             return true;
+
+        if(_onGround)
+            return true;
+        return false;
+    }
+
+    void checkGrounded(){
+        
+        // Debug the rays to check ground status
+        foreach (var point in groundDetectionPoints)
+        {
+            Debug.DrawRay(groundDetectionPoints[0].position,-Vector2.up*_groundDetectionRayLength,Color.white);
         }
 
-        return false;
+        //Raycast to check ground
+        _onGround = groundDetectionPoints.Any(point=>Physics2D.Raycast(point.position, -Vector2.up,_groundDetectionRayLength,groundLayer));
+
+
+        if (_onGround)
+            _lastTimeOnGround = Time.time;
     }
 
-    bool canJump()
-    {
-        if (onGround() || jumpsLeft > 0)
-            return true;
 
-        return false;
-    }
+    #endregion
+
 
     void Flip()
     {
         facingRight = !facingRight;
 
-        // Vector3 localScale = transform.localScale;
-        // localScale.x *= -1;
-        // transform.localScale = localScale;
         float rotationY = facingRight ? 0f : 180f;
         transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
     }
-
-
-
-
 }
