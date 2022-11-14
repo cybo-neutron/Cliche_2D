@@ -54,6 +54,7 @@ public class Projectile : MonoBehaviour
 
         if (other.collider != null)
         {
+            Debug.LogWarning("Collided" + other.collider.name + "");
             IDestructible hit;
             bool didHitObj = other.gameObject.TryGetComponent<IDestructible>(out hit);
             if (didHitObj)

@@ -11,13 +11,12 @@
   - [ ] Shoot animation 
 - [ ] Dialog system
 - [ ] UI system
-- [ ] Object pooling
 - [ ] Sprite Shape
 
 
 
 **Design Patterns**
-- [ ] Object pooling
+- [ ] Object pooling -> for bullets 
 - [ ] Singleton Pattern
   - [ ] Player
   - [ ] Game Manager
