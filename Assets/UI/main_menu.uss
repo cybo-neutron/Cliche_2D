@@ -1,0 +1,81 @@
+.button {
+    margin-left: 0;
+    margin-right: 0;
+    background-color: rgba(0, 0, 0, 0.33);
+    margin-bottom: 20px;
+    -unity-font-style: bold;
+    -unity-font: url('project://database/Assets/RubikMarkerHatch-Regular.ttf?fileID=12800000&guid=6a57801b1e21516469a3221ec39b9741&type=3#RubikMarkerHatch-Regular');
+    font-size: 40px;
+    width: 60%;
+    height: 75px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 255);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.button:active {
+    -unity-text-outline-width: 0;
+    border-left-color: rgba(255, 255, 255, 255);
+    border-right-color: rgba(255, 255, 255, 255);
+    border-top-color: rgba(255, 255, 255, 255);
+    border-bottom-color: rgba(255, 255, 255, 255);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.button:hover {
+    background-color: rgba(36, 36, 36, 255);
+}
+
+.button:focus {
+    -unity-text-outline-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.main-menu-outer-container {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.68);
+}
+
+.main-menu-inner-container {
+    height: 75%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.73);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}

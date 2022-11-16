@@ -1,6 +1,7 @@
 - [x] Cinemachine
   - [x] Camera bounds
 - [x] Improving on player jumping
+- [ ] UI system
 - [ ] Player Singleton
 - [ ] Game Manager Singleton
 - [ ] Player animation
@@ -10,7 +11,6 @@
   - [ ] Death animation
   - [ ] Shoot animation 
 - [ ] Dialog system
-- [ ] UI system
 - [ ] Sprite Shape
 
 
