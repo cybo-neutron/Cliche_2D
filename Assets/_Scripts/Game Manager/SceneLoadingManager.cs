@@ -22,5 +22,9 @@ public class SceneLoadingManager : MonoBehaviour
         activeScene = SceneManager.GetActiveScene().buildIndex;
     }
 
+    public void LoadNextScent(){
+        
+    }
+
 
 }
