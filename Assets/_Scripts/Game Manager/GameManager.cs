@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]SceneLoadingManager _sceneLoadingManager;
     static int score = 0;
 
     void Start()
@@ -14,8 +13,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-            RestartGame();
+        
     }
 
     static public void UpdateScore(int _score)
@@ -24,10 +22,6 @@ public class GameManager : MonoBehaviour
         UIController.UpdateScore(score);
     }
 
-    public void RestartGame()
-    {
-        _sceneLoadingManager.LoadScene(_sceneLoadingManager.activeScene);
-    }
 
 
 

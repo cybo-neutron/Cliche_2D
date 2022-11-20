@@ -3,13 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+public class Scenes
+{
+    public static string main_menu = "main_menu";
+    public static string level_01 = "level_01";
+}
+
+
 public class SceneLoadingManager : MonoBehaviour
 {
-    [HideInInspector] public int activeScene;
+
+    public static SceneLoadingManager Instance{ get; private set; }
 
     void Awake()
     {
-        ReturnActiveScene();
+        if(Instance==null){
+            Instance = this;
+        }
+
     }
 
     public void LoadScene(int sceneIndex)
@@ -17,13 +29,26 @@ public class SceneLoadingManager : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneIndex);
     }
 
-    public void ReturnActiveScene()
-    {
-        activeScene = SceneManager.GetActiveScene().buildIndex;
+    public void LoadScene(string scene){
+        SceneManager.LoadSceneAsync(scene);
     }
 
-    public void LoadNextScent(){
+    public int ReturnActiveScene()
+    {
+        int activeScene = SceneManager.GetActiveScene().buildIndex;
+        return activeScene;
+    }
+
+    public void LoadNextScene(){
         
+    }
+
+    public void ReloadCurrentScene(){
+        this.LoadScene(this.ReturnActiveScene());
+    }
+
+    public void LoadMainMenu(){
+        SceneManager.LoadScene(Scenes.main_menu);
     }
 
 

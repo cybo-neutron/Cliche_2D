@@ -2,16 +2,16 @@
   - [x] Camera bounds
 - [x] Improving on player jumping
 - [ ] UI system
-- [ ] Player Singleton
-- [ ] Game Manager Singleton
 - [ ] Player animation
   - [ ] Particles when running and jumping
   - [ ] Run animation
   - [ ] Jump animation
   - [ ] Death animation
   - [ ] Shoot animation 
+- [ ] Sprite Shape for grass
+- [ ] Game Manager Singleton
 - [ ] Dialog system
-- [ ] Sprite Shape
+- [ ] Player Singleton
 
 
 
