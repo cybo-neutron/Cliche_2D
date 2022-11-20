@@ -1,7 +1,7 @@
 - [x] Cinemachine
   - [x] Camera bounds
 - [x] Improving on player jumping
-- [ ] UI system
+- [x] UI system -  Simple main menu and pause menu
 - [ ] Player animation
   - [ ] Particles when running and jumping
   - [ ] Run animation
@@ -12,6 +12,7 @@
 - [ ] Game Manager Singleton
 - [ ] Dialog system
 - [ ] Player Singleton
+- [ ] UI Sytem Game Over
 
 
 
