@@ -69,7 +69,7 @@ public class PatrolState : States
 
     void handleWayPoint()
     {
-        if (Vector2.Distance(npc.transform.position, aiScript.env.waypoints[currIndex].transform.position) < 0.1f)
+        if (Mathf.Abs(npc.transform.position.x - aiScript.env.waypoints[currIndex].transform.position.x) < 0.1f)
         {
             nextWayPoint();
         }

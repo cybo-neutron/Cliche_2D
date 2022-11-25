@@ -22,7 +22,8 @@ public class UI_main_menu : MonoBehaviour
         Debug.Log("Starting the game");
 
         //todo: load the last active scene
-        SceneLoadingManager.Instance.LoadScene(Scenes.level_01);
+        // SceneLoadingManager.Instance.LoadScene(Scenes.level_01);
+        SceneLoadingManager.Instance.LoadNextScene();
     }
 
     void ExitButtonOnClick(){

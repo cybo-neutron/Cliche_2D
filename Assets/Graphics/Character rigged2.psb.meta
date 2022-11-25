@@ -1919,8 +1919,8 @@ ScriptedImporter:
     - {x: 25, y: 26}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 588, y: 2736}
-    spritePosition: {x: 2925, y: 2026}
+    uvTransform: {x: 589, y: 2739}
+    spritePosition: {x: 2926, y: 2047}
   - name: upper hand R
     originalName: 
     pivot: {x: 0.5, y: 0.5}

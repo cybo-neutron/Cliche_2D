@@ -1,13 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/main_menu.uss?fileID=7433441132597879392&amp;guid=7f2da7e84d6bb5b4a9ef419a8c86956f&amp;type=3#main_menu" />
-    <ui:VisualElement name="OuterContainer" class="main-menu-outer-container disable" style="flex-grow: 1; justify-content: center; align-items: center;">
+    <ui:VisualElement name="OuterContainer" class="main-menu-outer-container" style="flex-grow: 1; justify-content: center; align-items: center;">
         <ui:VisualElement name="VisualElement" class="main-menu-inner-container">
             <ui:VisualElement style="justify-content: center; align-items: center;">
                 <ui:Label text="GAME PAUSED" display-tooltip-when-elided="true" name="Label" style="width: 100%; opacity: 1; white-space: nowrap; -unity-text-align: lower-center; font-size: 100px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
             </ui:VisualElement>
-            <ui:Button text="RESUME" display-tooltip-when-elided="true" name="resume_button" class="button" style="font-size: 50px; height: 100px;" />
-            <ui:Button text="RESTART" display-tooltip-when-elided="true" name="restart_button" class="button" style="font-size: 30px; height: 100px;" />
-            <ui:Button text="GO TO MAIN MENU" display-tooltip-when-elided="true" name="exit_button" class="button" style="font-size: 30px; height: 100px; width: 60%;" />
+            <ui:Button text="RESUME" display-tooltip-when-elided="true" name="resume_button" focusable="false" class="button" style="font-size: 50px; height: 100px;" />
+            <ui:Button text="RESTART" display-tooltip-when-elided="true" name="restart_button" focusable="false" class="button" style="font-size: 30px; height: 100px;" />
+            <ui:Button text="GO TO MAIN MENU" display-tooltip-when-elided="true" name="exit_button" focusable="false" class="button" style="font-size: 30px; height: 100px; width: 60%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

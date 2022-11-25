@@ -40,7 +40,7 @@ public class SceneLoadingManager : MonoBehaviour
     }
 
     public void LoadNextScene(){
-        
+        this.LoadScene(this.ReturnActiveScene() + 1);
     }
 
     public void ReloadCurrentScene(){

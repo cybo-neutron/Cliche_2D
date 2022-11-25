@@ -6,8 +6,8 @@
                 <ui:Label text="Stolen&#10;Heart" display-tooltip-when-elided="true" style="justify-content: flex-start; align-items: center; -unity-text-align: middle-center; -unity-font-style: bold; font-size: 130px; -unity-text-outline-width: 0; -unity-text-outline-color: rgb(255, 255, 255); text-shadow: 8px 5px 1px rgb(39, 36, 41); white-space: normal; letter-spacing: 3px; color: rgb(255, 255, 255); -unity-font: url(&apos;project://database/Assets/RubikMarkerHatch-Regular.ttf?fileID=12800000&amp;guid=6a57801b1e21516469a3221ec39b9741&amp;type=3#RubikMarkerHatch-Regular&apos;);" />
             </ui:VisualElement>
             <ui:VisualElement name="ButtonContainer" style="width: 100%; justify-content: center; align-items: center; height: auto; flex-grow: 1; -unity-font-style: normal;">
-                <ui:Button text="START" display-tooltip-when-elided="true" name="start" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
-                <ui:Button text="OPTIONS" display-tooltip-when-elided="true" name="options" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
+                <ui:Button text="START" display-tooltip-when-elided="true" name="start" focusable="false" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
+                <ui:Button text="OPTIONS" display-tooltip-when-elided="true" name="options" focusable="false" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
                 <ui:Button text="EXIT" display-tooltip-when-elided="true" name="exit" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
             </ui:VisualElement>
         </ui:VisualElement>

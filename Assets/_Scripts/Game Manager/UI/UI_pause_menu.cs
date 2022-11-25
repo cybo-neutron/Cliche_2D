@@ -21,11 +21,13 @@ public class UI_pause_menu : MonoBehaviour
         restart_button.clicked += RestartButtonOnClick;
         exit_button.clicked += ExitButtonOnClick;
 
-
+        root.Q<VisualElement>("OuterContainer").AddToClassList("disable");
 
     }
 
     private void Update(){
+       
+
         if(Input.GetKeyDown(KeyCode.Escape)){
             //todo : Pause the game
             TogglePauseMenu();
