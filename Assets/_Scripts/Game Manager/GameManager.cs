@@ -5,15 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     static int score = 0;
+    bool _isGameOver = false;
 
     void Start()
     {
         score = 0;
-    }
-
-    public void Update()
-    {
-        
+        PlayerController.DeathEvent += onPlayerDeath;
     }
 
     static public void UpdateScore(int _score)
@@ -22,6 +19,13 @@ public class GameManager : MonoBehaviour
         UIController.UpdateScore(score);
     }
 
+    void onPlayerDeath(){
+        _isGameOver = true;
+    }
+
+    public bool isGameOver(){
+        return _isGameOver;
+    }
 
 
 

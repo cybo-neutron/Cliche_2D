@@ -8,7 +8,7 @@
             <ui:VisualElement name="ButtonContainer" style="width: 100%; justify-content: center; align-items: center; height: auto; flex-grow: 1; -unity-font-style: normal;">
                 <ui:Button text="START" display-tooltip-when-elided="true" name="start" focusable="false" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
                 <ui:Button text="OPTIONS" display-tooltip-when-elided="true" name="options" focusable="false" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
-                <ui:Button text="EXIT" display-tooltip-when-elided="true" name="exit" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
+                <ui:Button text="EXIT" display-tooltip-when-elided="true" name="exit" focusable="false" class="button" style="padding-top: 1px; padding-bottom: 1px;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -7,6 +7,8 @@ public class UI_game_over : MonoBehaviour
 {
     [SerializeField]VisualElement root  = null; 
 
+    
+
     private void Awake() {
         
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -19,6 +21,8 @@ public class UI_game_over : MonoBehaviour
 
         root.Q<VisualElement>("OuterContainer").AddToClassList("disable");
 
+        PlayerController.DeathEvent += onGameOver;
+
     }
 
     void RestartButtonOnClick(){
@@ -27,5 +31,9 @@ public class UI_game_over : MonoBehaviour
 
     void ExitButtonOnClick(){
         SceneLoadingManager.Instance.LoadMainMenu();
+    }
+
+    void onGameOver(){
+        root.Q<VisualElement>("OuterContainer").ToggleInClassList("disable");
     }
 }

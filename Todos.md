@@ -8,11 +8,11 @@
   - [ ] Jump animation
   - [ ] Death animation
   - [ ] Shoot animation 
-- [ ] Sprite Shape for grass
+- [x] Sprite Shape for grass
 - [ ] Game Manager Singleton
 - [ ] Dialog system
 - [ ] Player Singleton
-- [ ] UI Sytem Game Over
+- [x] UI Sytem Game Over
 
 
 
@@ -23,5 +23,5 @@
   - [ ] Game Manager
   - [ ] UI Manager
 - [ ] Observer Patterns
-- [ ] State Patterns -> for controlling enemy states.
+- [x] State Patterns -> for controlling enemy states.
 - [ ] 

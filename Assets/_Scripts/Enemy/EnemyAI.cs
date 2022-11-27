@@ -34,7 +34,8 @@ public class EnemyAI : DestructibleObject
     public LayerMask targetDetectionLayer;
     Rigidbody2D rb;
     public EnemyGunController gunController;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         currState = new IdleState(this, this.gameObject);

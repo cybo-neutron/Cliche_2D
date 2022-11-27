@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -37,6 +38,8 @@ public class PlayerController : DestructibleObject
         //TODO : use GetAxisRaw("Jump) for variable jump height
         HandleJump();
     }
+
+
 
 
 #region Jump
@@ -110,7 +113,7 @@ public class PlayerController : DestructibleObject
     }
 
 
-    #endregion
+#endregion
 
 
     void Flip()
@@ -120,4 +123,16 @@ public class PlayerController : DestructibleObject
         float rotationY = facingRight ? 0f : 180f;
         transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
     }
+
+    #region Death
+    public static event Action DeathEvent;
+
+    public override void Die()
+    {
+        DeathEvent?.Invoke();
+        base.Die();
+    }
+
+
+    #endregion
 }

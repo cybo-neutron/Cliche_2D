@@ -5,8 +5,8 @@
             <ui:VisualElement name="VisualElement" style="font-size: 70px; -unity-font-style: bold;">
                 <ui:Label text="Game Over" display-tooltip-when-elided="true" style="color: rgb(230, 198, 255); font-size: 80px;" />
             </ui:VisualElement>
-            <ui:Button text="RESTART" display-tooltip-when-elided="true" name="restart_button" class="button" />
-            <ui:Button text="GO TO MAIN MENU" display-tooltip-when-elided="true" name="gtm_button" class="button" />
+            <ui:Button text="RESTART" display-tooltip-when-elided="true" name="restart_button" focusable="false" class="button" />
+            <ui:Button text="GO TO MAIN MENU" display-tooltip-when-elided="true" name="gtm_button" focusable="false" class="button" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

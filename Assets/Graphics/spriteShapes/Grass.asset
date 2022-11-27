@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
+  m_Name: Grass
+  m_EditorClassIdentifier: 
+  m_Angles:
+  - m_Start: -73
+    m_End: 71
+    m_Order: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 33bf3cb9fd890dc4b86e59b424a639b4, type: 3}
+    - {fileID: 21300000, guid: e49639d0f84089f4198675fb751adb0e, type: 3}
+    - {fileID: 21300000, guid: c468edd43c4463249bb2d0d403f5e814, type: 3}
+    - {fileID: 21300000, guid: 625889cca4f2a4d41a09009e25f87394, type: 3}
+    - {fileID: 21300000, guid: 139104a865a9c7c419c83d88f16bc6d6, type: 3}
+    - {fileID: 21300000, guid: 17bc7d65647f208418cfe96e761f380b, type: 3}
+  m_FillTexture: {fileID: 0}
+  m_CornerSprites:
+  - m_CornerType: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - m_CornerType: 1
+    m_Sprites:
+    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - m_CornerType: 2
+    m_Sprites:
+    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - m_CornerType: 3
+    m_Sprites:
+    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - m_CornerType: 4
+    m_Sprites:
+    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - m_CornerType: 5
+    m_Sprites:
+    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - m_CornerType: 6
+    m_Sprites:
+    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - m_CornerType: 7
+    m_Sprites:
+    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  m_FillOffset: 0
+  m_UseSpriteBorders: 1
