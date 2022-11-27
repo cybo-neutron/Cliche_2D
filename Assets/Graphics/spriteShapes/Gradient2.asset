@@ -13,36 +13,36 @@ MonoBehaviour:
   m_Name: Gradient2
   m_EditorClassIdentifier: 
   m_Angles:
-  - m_Start: -61
-    m_End: 61
+  - m_Start: -179
+    m_End: 181
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 75bbba19bcb67f7428656305de0b4c22, type: 3}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   m_FillTexture: {fileID: 0}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   - m_CornerType: 1
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   - m_CornerType: 2
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   - m_CornerType: 3
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   - m_CornerType: 4
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   - m_CornerType: 5
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   - m_CornerType: 6
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   - m_CornerType: 7
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 2fe92eb03aacbd44c86146832ba6118e, type: 3}
   m_FillOffset: 0
   m_UseSpriteBorders: 1

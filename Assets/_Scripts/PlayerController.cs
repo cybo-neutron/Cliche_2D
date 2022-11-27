@@ -14,6 +14,8 @@ public class PlayerController : DestructibleObject
 
     bool facingRight = true;
 
+    [SerializeField]Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,6 +33,8 @@ public class PlayerController : DestructibleObject
         rb.velocity =
             new Vector2(horizontalInput * speed * Time.deltaTime,
                 rb.velocity.y);
+
+        anim.SetFloat("speed", Mathf.Abs(horizontalInput));
     }
 
     void Update()
