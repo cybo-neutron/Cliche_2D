@@ -6,9 +6,9 @@ Neo our main character. His lady love has been captured by an evil and has been 
 **Progress**
 
 **Images**
-[![Characer]](./Images%20and%20Videos/character.png)
-[![Menu]](./Images%20and%20Videos/main_menu.png.png)
-[![In Game]](./Images%20and%20Videos/in-game.png.png.png)
+![Characer](./Images%20and%20Videos/character.png)
+![Menu](./Images%20and%20Videos/main_menu.png)
+![In Game](./Images%20and%20Videos/in-game.png)
 
 
 **Video**
