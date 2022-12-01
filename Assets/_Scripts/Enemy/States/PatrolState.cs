@@ -69,16 +69,19 @@ public class PatrolState : States
 
     void handleWayPoint()
     {
-        if (Mathf.Abs(npc.transform.position.x - aiScript.env.waypoints[currIndex].transform.position.x) < 0.1f)
+
+
+        if (Vector2.Distance(npc.transform.position, aiScript.env.waypoints[currIndex].transform.position) < 0.2f)
         {
             nextWayPoint();
+            Debug.Log("Waypoint reached");
         }
         //TODO: come with a better implementation for edge detection and flipping the player
-        if (!aiScript.canMove())
-        {
-            nextWayPoint();
-            // aiScript.Flip();
-        }
+        // if (!aiScript.canMove())
+        // {
+        //     nextWayPoint();
+        //     // aiScript.Flip();
+        // }
     }
 
     void nextWayPoint()

@@ -22,6 +22,7 @@ public class EnemyAI : DestructibleObject
     public float speed;
     public float chaseRange;
     public float attackRange;
+    public float fireRate;
     bool isFacingRight;
     [SerializeField] States currState;
 
@@ -35,6 +36,10 @@ public class EnemyAI : DestructibleObject
     Rigidbody2D rb;
     public EnemyGunController gunController;
 
+    //check for ground
+    GroundCheck groundCheck;
+    [SerializeField] bool isOnGround = false;
+    float _initialGravity;
 
     void Start()
     {
@@ -43,32 +48,48 @@ public class EnemyAI : DestructibleObject
         isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
 
+        _initialGravity = rb.gravityScale;
+        groundCheck = GetComponent<GroundCheck>();
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         currState = currState.Process();
+        if(groundCheck.isGrounded())
+        {
+            rb.gravityScale = 0;
+        }else{
+            rb.gravityScale = _initialGravity;
+        }
     }
 
 
     #region  CanSeeTarget and CanAttackTarget
     bool CanSeeTarget(Transform _target)
     {
-        Vector2 direction = (_target.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, chaseRange, targetDetectionLayer);
-        Debug.DrawRay(transform.position, direction * chaseRange, Color.green);
+        Vector2 direction = (_target.position - transform.position);
+        float angle = Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg;
+        float uangle = Vector2.Angle( (isFacingRight ? 1 : -1)* Vector2.right,direction);
 
-        if (hit.collider != null)
+        if(uangle>0f && uangle<45f)
         {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, chaseRange, targetDetectionLayer);
+            Debug.DrawRay(transform.position, direction * chaseRange, Color.green);
 
-            if (hit.transform.gameObject.layer == target.gameObject.layer)
+            if (hit.collider != null)
             {
 
-                return true;
+                if (hit.transform.gameObject.layer == target.gameObject.layer)
+                {
+                    Debug.DrawLine(transform.position, hit.point, Color.red);
+                    return true;
+                }
             }
-        }
 
+        }
 
         return false;
     }
@@ -83,7 +104,9 @@ public class EnemyAI : DestructibleObject
     bool CanAttackTarget(Transform _target)
     {
         if (CanSeeTarget(_target) && Vector2.Distance(_target.position, transform.position) < attackRange)
+        { 
             return true;
+        }
 
         return false;
     }
@@ -110,8 +133,8 @@ public class EnemyAI : DestructibleObject
         //change the velocity
         if (canMove())
         {
-
             rb.velocity = new Vector2(direction * speed * Time.deltaTime, 0f);
+
         }
     }
 
@@ -135,7 +158,6 @@ public class EnemyAI : DestructibleObject
 
         if (hit.collider == null)
         {
-            Debug.Log("Can't move");
             return false;
         }
 

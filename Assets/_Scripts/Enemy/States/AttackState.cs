@@ -24,7 +24,7 @@ public class AttackState : States
             //Keep Attacking
             if (!aiScript.coroutineHelper.isTimerRunning())
             {
-                aiScript.coroutineHelper.StartTimer(0.2f);
+                aiScript.coroutineHelper.StartTimer(aiScript.fireRate);
                 aiScript.gunController.Shoot();
             }
         }

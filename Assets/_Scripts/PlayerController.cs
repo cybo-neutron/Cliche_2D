@@ -41,6 +41,7 @@ public class PlayerController : DestructibleObject
     {
         //TODO : use GetAxisRaw("Jump) for variable jump height
         HandleJump();
+        HandleGravity();
     }
 
 
@@ -116,6 +117,13 @@ public class PlayerController : DestructibleObject
             _lastTimeOnGround = Time.time;
     }
 
+    void HandleGravity(){
+        if(_onGround){
+            rb.gravityScale = 0;
+        }else{
+            rb.gravityScale = _gravity;
+        }
+    }
 
 #endregion
 
@@ -128,7 +136,7 @@ public class PlayerController : DestructibleObject
         transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
     }
 
-    #region Death
+#region Death
     public static event Action DeathEvent;
 
     public override void Die()
@@ -137,6 +145,9 @@ public class PlayerController : DestructibleObject
         base.Die();
     }
 
+#endregion
 
-    #endregion
+
+
+
 }
