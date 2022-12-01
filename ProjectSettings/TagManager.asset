@@ -44,9 +44,9 @@ TagManager:
   - name: background
     uniqueID: 256929387
     locked: 0
-  - name: foreground
-    uniqueID: 3827027007
-    locked: 0
   - name: interactive layer
     uniqueID: 3982397137
+    locked: 0
+  - name: foreground
+    uniqueID: 3827027007
     locked: 0
